@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -10,11 +14,11 @@
 <meta name="renderer" content="webkit">
 <!-- No Baidu Siteapp-->
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<link rel="alternate icon" href="assets/i/favicon.ico">
-<link rel="stylesheet" href="assets/css/amazeui.min.css">
-<link rel="stylesheet" href="assets/css/app.css">
+<link rel="alternate icon" href="<%=basePath%>assets/i/favicon.ico">
+<link rel="stylesheet" href="<%=basePath%>assets/css/amazeui.min.css">
+<link rel="stylesheet" href="<%=basePath%>assets/css/app.css">
 <!-- umeditor css -->
-<link href="umeditor/themes/default/css/umeditor.css" rel="stylesheet">
+<link href="<%=basePath%>umeditor/themes/default/css/umeditor.css" rel="stylesheet">
 <style>
 .title {
   text-align: center;
@@ -78,9 +82,9 @@
   <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
   <![endif]-->
   <!-- umeditor js -->
-  <script charset="utf-8" src="umeditor/umeditor.config.js"></script>
-  <script charset="utf-8" src="umeditor/umeditor.min.js"></script>
-  <script src="umeditor/lang/zh-cn/zh-cn.js"></script>
+  <script charset="utf-8" src="<%=basePath%>umeditor/umeditor.config.js"></script>
+  <script charset="utf-8" src="<%=basePath%>umeditor/umeditor.min.js"></script>
+  <script src="<%=basePath%>umeditor/lang/zh-cn/zh-cn.js"></script>
   <script>
     $(function() {
       // 初始化消息输入框
@@ -128,7 +132,7 @@
         var messageItem = '<li class="am-comment '
             + (message.isSelf ? 'am-comment-flip' : 'am-comment')
             + '">'
-            + '<a href="javascript:void(0)" ><img src="assets/i/'
+            + '<a href="javascript:void(0)" ><img src="<%=basePath%>assets/i/'
             + (message.isSelf ? 'favicon.png' : 'app-icon72x72@2x.png')
             + '" alt="" class="am-comment-avatar" width="48" height="48"/></a>'
             + '<div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta">'
